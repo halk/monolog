@@ -472,8 +472,8 @@ class Logger implements LoggerInterface
      */
     public static function toMonologLevel($level)
     {
-        if (is_string($level) && defined(__CLASS__.'::'.strtoupper($level))) {
-            return constant(__CLASS__.'::'.strtoupper($level));
+        if (is_string($level) && defined(__CLASS__.'::'.mb_strtoupper($level))) {
+            return constant(__CLASS__.'::'.mb_strtoupper($level));
         }
 
         return $level;

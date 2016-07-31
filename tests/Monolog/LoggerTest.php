@@ -62,6 +62,17 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers Monolog\Logger::toMonologLevel
+     */
+    public function testConvertPSR3ToMonologLevelTurkish()
+    {
+        $backupLocale = setlocale(LC_CTYPE, 0);
+        setlocale(LC_CTYPE, 'tr_TR.UTF-8');
+        $this->testConvertPSR3ToMonologLevel();
+        setlocale(LC_CTYPE, $backupLocale);
+    }
+
+    /**
      * @covers Monolog\Logger::getLevelName
      * @expectedException InvalidArgumentException
      */
