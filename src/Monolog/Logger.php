@@ -408,8 +408,8 @@ class Logger implements LoggerInterface, ResettableInterface
     public static function toMonologLevel($level): int
     {
         if (is_string($level)) {
-            if (defined(__CLASS__.'::'.strtoupper($level))) {
-                return constant(__CLASS__.'::'.strtoupper($level));
+            if (defined(__CLASS__.'::'.mb_strtoupper($level))) {
+                return constant(__CLASS__.'::'.mb_strtoupper($level));
             }
 
             throw new InvalidArgumentException('Level "'.$level.'" is not defined, use one of: '.implode(', ', array_keys(static::$levels)));
